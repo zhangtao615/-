@@ -1,24 +1,27 @@
 var tree = {
-    value : '-',
-    left:{
-        value:'a',
-    },
-    right:{
-        value:'*',
-        left:{
-            value:'b'
+    value: "-",
+    left: {
+        value: '+',
+        left: {
+            value: 'a',
         },
-        right:{
-            value:'c'
+        right: {
+            value: '*',
+            left: {
+                value: 'b',
+            },
+            right: {
+                value: 'c',
+            }
         }
     },
-    left:{
-        value:'/',
-        left:{
-            value:'d'
+    right: {
+        value: '/',
+        left: {
+            value: 'd',
         },
-        right:{
-            value:'e'
+        right: {
+            value: 'e',
         }
     }
 }
@@ -35,14 +38,14 @@ var res = []; //保存结果
 
 
 //非递归遍历
-var preOrder = function(node){
-    if(node){
+var preOrder = function (node) {
+    if (node) {
         var stack = [node]; //将二叉树压入栈
-        while(stack.length != 0){
+        while (stack.length != 0) {
             node = stack.pop(); //从栈中取出一个节点
-            res.push(node.value);//将节点值存入数组
-            if(node.right) stack.push(node.right);//如果存在右子树，将右子树压入栈
-            if(node.left) stack.push(node.left);//如果存在左子树，将左子树压入栈
+            res.push(node.value); //将节点值存入数组
+            if (node.right) stack.push(node.right); //如果存在右子树，将右子树压入栈
+            if (node.left) stack.push(node.left); //如果存在左子树，将左子树压入栈
         }
     }
 }
